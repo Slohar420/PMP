@@ -1,0 +1,434 @@
+﻿body {
+}
+
+.icon-box {
+    font-size: 40px;
+    color: #fff;
+    margin: 15px;
+}
+
+.info-box1 {
+    /*box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);*/
+    /*border-radius: .25rem;*/
+    background-color: #F6C34D;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 1rem;
+    min-height: 80px;
+    padding: .5rem;
+    margin-top: 30%;
+    margin: 10px;
+   
+}
+
+    /*.elevation-1 {
+            box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24) !important;
+        }*/
+
+    /*.info-box .info-box-content {
+            -ms-flex: 1;
+            flex: 1;
+            padding: 5px 10px;
+        }*/
+
+    .info-box .info-box-text, .info-box .progress-description {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: white;
+    }
+
+    .info-box .info-box-number {
+        display: block;
+        font-weight: 700;
+        color: white;
+        font-size: 30px;
+    }
+
+.box-content {
+    padding: 10px;
+    margin-left: 5px;
+}
+
+.card-header {
+    margin-bottom: 0;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    text-align: center;
+}
+
+.card-body {
+    padding: 2px 16px;
+}
+
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .50rem;
+    margin: 10px;
+    width: 100%;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    /*margin: 5px 0 22px 0;*/
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+    /* Add a background color when the inputs get focus */
+    input[type=text]:focus, input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.button1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity: 1;
+}
+
+.button1:hover {
+    opacity: 1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+    float: left;
+    width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+    margin-left:30%;
+    margin-top:10%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */    
+    padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #f44336;
+        cursor: pointer;
+    }
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+        width: 100%;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+ .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+  /*input.invalid, textarea.invalid {
+            border: 2px solid red;
+        }
+
+        input.valid, textarea.valid {
+            border: 2px solid green;
+        }
+
+        .breadcrumb-arrow {
+            height: 36px;
+            padding: 0;
+            line-height: 36px;
+            list-style: none;
+            background-color: #e6e9ed;
+        }
+
+            .breadcrumb-arrow li:first-child a {
+                border-radius: 4px 0 0 4px;
+                -webkit-border-radius: 4px 0 0 4px;
+                -moz-border-radius: 4px 0 0 4px;
+            }
+
+            .breadcrumb-arrow li, .breadcrumb-arrow li a, .breadcrumb-arrow li span {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+                .breadcrumb-arrow li:not(:first-child) {
+                    margin-left: -5px;
+                }
+
+                .breadcrumb-arrow li + li:before {
+                    padding: 0;
+                    content: "";
+                }
+
+                .breadcrumb-arrow li span {
+                    padding: 0 10px;
+                }
+
+                .breadcrumb-arrow li a, .breadcrumb-arrow li:not(:first-child) span {
+                    height: 36px;
+                    padding: 0 10px 0 25px;
+                    line-height: 36px;
+                }
+
+                .breadcrumb-arrow li:first-child a {
+                    padding: 0 10px;
+                }
+
+                .breadcrumb-arrow li a {
+                    color: #fff;
+                    text-decoration: none;
+                    background-color: #3bafda;
+                    border: 1px solid #3bafda;
+                }
+
+                .breadcrumb-arrow li:first-child a {
+                    padding-left: 10px;
+                }
+
+                .breadcrumb-arrow li a:after, .breadcrumb-arrow li a:before {
+                    position: absolute;
+                    top: -1px;
+                    width: 0;
+                    height: 0;
+                    content: '';
+                    border-top: 18px solid transparent;
+                    border-bottom: 18px solid transparent;
+                }
+
+                .breadcrumb-arrow li a:before {
+                    right: -10px;
+                    z-index: 3;
+                    border-left-color: #3bafda;
+                    border-left-style: solid;
+                    border-left-width: 11px;
+                }
+
+                .breadcrumb-arrow li a:after {
+                    right: -11px;
+                    z-index: 2;
+                    border-left: 11px solid #2494be;
+                }
+
+                .breadcrumb-arrow li a:focus, .breadcrumb-arrow li a:hover {
+                    background-color: #4fc1e9;
+                    border: 1px solid #4fc1e9;
+                }
+
+                    .breadcrumb-arrow li a:focus:before, .breadcrumb-arrow li a:hover:before {
+                        border-left-color: #4fc1e9;
+                    }
+
+                .breadcrumb-arrow li a:active {
+                    background-color: #2494be;
+                    border: 1px solid #2494be;
+                }
+
+                    .breadcrumb-arrow li a:active:after, .breadcrumb-arrow li a:active:before {
+                        border-left-color: #2494be;
+                    }
+
+                .breadcrumb-arrow li span {
+                    color: #434a54;
+                }
+
+        .t:hover {
+            background-color: #fff;
+        }
+
+        .buttonTask {
+            background-color: #ff9600;
+            color: white;
+            padding: 6px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 30%;
+            opacity: 0.9;
+            margin-left: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .buttonTask1 {
+            background-color: #ff9600;
+            color: white;
+            padding: 6px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 30%;
+            opacity: 0.9;
+            margin-left: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .taskfooter {
+            margin-top: 10px;
+            background-color: #eee;
+            border-top: 1px solid rgba(0,0,0,.125);
+            text-align: center;
+        }
+
+        .grd {
+            padding: 5px;
+            border: none;
+        }
+
+        .gvHeader {
+            padding-left: 10px;
+            background: none repeat scroll 0 0 #ABBAC3;
+            color: #FFFFFF;
+        }
+
+        th {
+            font-weight: bold;
+            color: #333333;
+            background-color: #F3F3F3;
+            text-align: left;
+            padding: 10px;
+            font-size: medium;
+            width: 300px;
+        }
+
+        .tr_col_sec {
+            background-color: #EAF1F6;
+        }
+
+        tr:hover {
+            background-color: #FFFFAE;
+        }
+
+        td {
+            text-align: left;
+            padding: 10px;
+            width: 300px;
+        }*/
+
+        #holder_detl {
+            border: 4px dashed #F8F81E;
+            padding: 8px;
+            height: 85px;
+            background: #F0F0F0;
+        }
+
+            #holder_detl.hover {
+                border: 4px dashed #0c0;
+            }

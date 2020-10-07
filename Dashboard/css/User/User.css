@@ -1,0 +1,87 @@
+﻿ .buttonTask {
+            background-color: #ff9600;
+            color: white;
+            padding: 6px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 30%;
+            opacity: 0.9;
+            margin-left: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+  .buttonTask1 {
+            background-color: #ff9600;
+            color: white;
+            padding: 6px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 30%;
+            opacity: 0.9;
+            margin-left: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .taskfooter {
+            margin-top: 10px;
+            background-color: #eee;
+            border-top: 1px solid rgba(0,0,0,.125);
+            text-align: center;
+        }
+
+        .addDepartment {
+            background-color: white; /* Green */
+            border: none;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .sweet-warning {
+            background-color: navy;
+            margin-right: 180px;
+        }
+
+            .sweet-warning:not([disabled]):hover {
+                background-color: red;
+            }
+
+        .swal-modal {
+            background-color: white;
+            border-radius: 20px;
+            border: solid 4px;
+            border-color: red;
+        }
+
+        .sweet-warning1 {
+            background-color: green;
+            margin-right: 180px;
+        }
+
+            .sweet-warning1:not([disabled]):hover {
+                background-color: white;
+                color: black;
+            }
+
+        .addDepartment1 {
+            border-radius: 50%;
+        }
+         #holder_detl {
+            border: 4px dashed #F8F81E;
+            padding: 8px;
+            height: 85px;
+            background: #F0F0F0;
+        }
+
+            #holder_detl.hover {
+                border: 4px dashed #0c0;
+            }

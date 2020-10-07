@@ -1,0 +1,745 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DSMaster.master.cs" Inherits="Dashboard_DSMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <link href="css/style_inner.css" rel="stylesheet" />
+    <link href="Chart/css/Chart.css" rel="stylesheet" />
+    <link href="Chart/css/Chart.min.css" rel="stylesheet" />
+    <script src="Chart/Js/Chart.min.js"></script>
+    <script src="Chart/Js/Chart.js"></script>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css" />
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css" />
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css" />
+    <link href="bower_components/morris.js/morris.css" rel="stylesheet" />
+    <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css" />
+    <link href="css/Design.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="SweetAlert/sweetalert.min.js"></script>
+    <%--  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">--%>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link href="css/floating-label.css" rel="stylesheet" />
+
+    <style>
+        .select-css {
+            display: inline-block;
+            font-size: 16px;
+            font-family: sans-serif;
+            font-weight: 700;
+            color: #444;
+            line-height: 1.3;
+            margin-left: 15px;
+            width: 300px;
+            /* useful when width is set to anything other than 100% */
+            box-sizing: border-box;
+            margin: 0;
+            padding: 5px 5px 5px 5px;
+            border: 1px solid #aaa;
+            box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+            border-radius: .5em;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            /* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient. 
+        for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
+        
+    */
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+            background-repeat: no-repeat, repeat;
+            /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
+            background-position: right .7em top 50%, 0 0;
+            /* icon size, then gradient */
+            background-size: .65em auto, 100%;
+        }
+            /* Hide arrow icon in IE browsers */
+            .select-css::-ms-expand {
+                display: none;
+            }
+            /* Hover style */
+            .select-css:hover {
+                border-color: #888;
+            }
+            /* Focus style */
+            .select-css:focus {
+                border-color: #aaa;
+                /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
+                box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+                box-shadow: 0 0 0 3px -moz-mac-focusring;
+                color: #222;
+                outline: none;
+            }
+
+            /* Set options to normal weight */
+            .select-css option {
+                font-weight: normal;
+            }
+
+        /* Support for rtl text, explicit support for Arabic and Hebrew */
+        *[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
+            background-position: left .7em top 50%, 0 0;
+            padding: .6em .8em .5em 1.4em;
+        }
+
+        /* Disabled styles */
+        .select-css:disabled, .select-css[aria-disabled=true] {
+            color: graytext;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+        }
+
+            .select-css:disabled:hover, .select-css[aria-disabled=true] {
+                border-color: #aaa;
+            }
+
+        .main-footer1 {
+            background: #fff;
+            padding: 15px;
+            color: #444;
+            border-top: 1px solid #d2d6de;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 180px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #eee;
+            overflow-x: hidden;
+            padding-top: 60px;
+        }
+
+            .sidenav a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 16px;
+                color: #101010;
+                display: block;
+                border-bottom: 1px solid silver;
+                padding-bottom: 10px;
+                padding-top: 10px;
+            }
+
+                .sidenav a:hover {
+                    color: white;
+                    background-color: #0e4e93;
+                }
+               
+
+        .main {
+            margin-left: 160px; /* Same as the width of the sidenav */
+            font-size: 18px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+        }
+
+        @media screen and (max-width: 600px) {
+            .sidenav {
+                display: none;
+            }
+
+            .breadcrumb_div {
+                display: none;
+            }
+
+            #idheading {
+                display: none;
+            }
+
+            #idbarhead {
+                margin: 0;
+                margin-left: 40px;
+            }
+        }
+
+        .heading-main-navbar {
+            font-weight: 800 !important;
+            font-size: 20px !important;
+            color: white !important;
+            font-family: Georgia, 'Times New Roman', Times, serif !important;
+            margin-top: 7px !important;
+            margin-left: 20% !important;
+        }
+
+        .button1 {
+            background-color: #ff9600;
+            color: white;
+            padding: 6px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 90%;
+            opacity: 0.9;
+            margin-left: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+            .button1:hover {
+                opacity: 1;
+                background-color: #2C7D57;
+            }
+
+        .navbar-form.navbar-left.top_search input.form-control {
+            box-shadow: none;
+            border: none;
+            border-radius: 12px;
+            width: 165px;
+            background: #fff;
+            height: 29px;
+            font-size: 14px;
+            color: #333;
+            padding: 0px 30px 0px 8px;
+            font-family: 'HelveticaNeue-Roman';
+            /* margin: 3px 3px 0 0; */
+            margin-right: 8px;
+        }
+   
+    </style>
+    <script>
+        function OnError(error) {
+            swal({
+                title: error,
+                icon: "error",
+                customClass: 'swal-wide',
+                buttons: {
+                    confirm: { text: 'Ok', className: 'sweet-warning' },
+                    cancel: { text: 'Delete', className: 'sweet-warning' },
+                },
+            })
+        }
+        function Success(add) {
+            swal({
+                title: add,
+                icon: "success",
+                customClass: 'swal-wide',
+                buttons: {
+                    confirm: { text: 'Ok', className: 'sweet-warning' },
+                    cancel: { text: 'Delete', className: 'sweet-warning' },
+                }
+            }).then(function () {
+                //window.location = "UserOrange.aspx";
+            });
+        }
+    </script>
+
+    <%--   <script type="text/javascript">
+
+        $(document).ready(function () {
+            function disableBack() { window.history.forward() }
+
+            window.onload = disableBack();
+            window.onpageshow = function (evt) { if (evt.persisted) disableBack() }
+        });
+        var ctrlKeyDown = false;
+
+        $(document).ready(function () {
+            $(document).on("keydown", keydown);
+            $(document).on("keyup", keyup);
+        });
+
+        function keydown(e) {
+
+            if ((e.which || e.keyCode) == 116 || ((e.which || e.keyCode) == 82 && ctrlKeyDown)) {
+                // Pressing F5 or Ctrl+R
+                e.preventDefault();
+            } else if ((e.which || e.keyCode) == 17) {
+                // Pressing  only Ctrl
+                ctrlKeyDown = true;
+            }
+        };
+
+        function keyup(e) {
+            // Key up Ctrl
+            if ((e.which || e.keyCode) == 17)
+                ctrlKeyDown = false;
+        };
+    </script>--%>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse fixed" onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="" oncontextmenu="">
+    <form id="form1" runat="server">
+
+        <asp:HiddenField runat="server" ID="userrole" Value="" />
+        <asp:Label Text="" ID="lblpid" runat="server" Visible="false" />
+
+        <div class="wrapper">
+            <header class="main-header">
+                <!-- Logo -->
+                <%-- <a href="Dashboard.aspx" class="logo" style="background-color: #101010">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"></span>
+                    <!--Company Logo-->
+                    <!-- logo for regular state and mobile devices -->
+
+                </a>--%>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top" style="top: 0px; background-color: #0e4e93; margin-left: 0px;">
+                 <i class="fa fa-th h-btn" style="color:white;display:none"></i>
+                    <ul class="nav navbar-nav" style="width: 75%;">
+                        <li class="dropdown" style="display: inline; padding-left: 50px; display: none">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-plus-circle" style="font-size: 18px"></i><span style="margin-left: 5px">New</span>
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li style="padding: 10px 20px" id="liproject"><a href="Projects.aspx">
+                                    <img src="images/project.png" /><span style="margin-left: 5px; padding: 10px">Project</span></a></li>
+                                <li style="padding: 10px 20px" id="liuser"><a href="UserOrange.aspx">
+                                    <img src="images/user.png" /><span style="margin-left: 5px; padding: 10px">User</span></a></li>
+                                <li style="padding: 10px 20px" id="litask"><a href="CreateTask.aspx">
+                                    <img src="images/task.png" /><span style="margin-left: 5px; padding: 10px">Task</span></a></li>
+                            </ul>
+                        </li>
+                        <li id="idheading" class="heading-main-navbar" style="display: none;">Project Management System</li>
+                        <li id="idbarhead" style="display: none"><i class="fa fa-bars" style="color: white; margin: 15px;"></i></li>
+
+                    </ul>
+                    <div class="navbar-custom-menu">
+
+
+                        <ul class="nav navbar-nav">
+                            <%-- <li class="dropdown" style="display:inline">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-plus-circle" style="font-size: 18px"></i><span style="margin-left: 5px">New</span>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li style="padding: 10px 20px" id="liproject"><a href="#">
+                                        <img src="images/project.png"  /><span style="margin-left: 5px; padding: 10px">Project</span></a></li>
+                                    <li style="padding: 10px 20px" id="liuser"><a href="#">
+                                        <img src="images/user.png" /><span style="margin-left: 5px; padding: 10px">User</span></a></li>
+                                    <li style="padding: 10px 20px" id="litask"><a href="#">
+                                        <img src="images/task.png" /><span style="margin-left: 5px; padding: 10px">Task</span></a></li>
+                                </ul>
+                            </li>--%>
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu" style="display: inline">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                                    <span class="hidden-xs">
+                                        <asp:Label ID="lblUSName" runat="server" Text=""></asp:Label></span>
+                                    <!--Fatch username-->
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header" style="background-color: #317cd8">
+                                        <%--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--%>
+                                        <p>
+                                            <span>
+                                                <label runat="server" id="username" style="color: white"></label>
+                                            </span>
+                                            <!--Fatch username and role-->
+                                            <br />
+                                            <span id="Today" class="DateStyle" style="color: white"></span>
+                                            <!--Fatch Current date-->
+                                        </p>
+                                    </li>
+                                    <li class="user-footer">
+
+                                        <div class="pull-left">
+                                            <asp:Button ID="btnLogout" TabIndex="-1" class="btn btn-default btn-flat btnlogout "   style="background-color:#fd9e18 ; color:white"  OnClick="btnLogout_Click" runat="server" Text="Sign out" />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <!-- Left side column. contains the logo and sidebar -->
+
+            <!-- sidebar: style can be found in sidebar.less -->
+
+            <section class="sidenav">
+                <!-- Sidebar user panel -->
+                <img src="images/logo1.png" style="margin: 0px 0px 10px 40px;" />
+                <button class="button1 create" type="button"><span class="fa fa-plus-circle" style="margin-left: 0px; font-size: 20px; padding: 0px"></span><span class="createspan" style="margin-left: 5px">Create Project</span></button>
+
+                <a href="Dashboard.aspx" id="linkdash"><i class="fa fa-dashboard  active" style="padding: 5px"></i><span>Dashboad</span></a>
+                <a href="Projects.aspx" onclick="return false" id="linkprj"><i class="fa fa-folder-open-o" style="padding: 5px"></i>Project</a>
+                <a href="CreateTask.aspx" id="linktask"><i class="fa fa-tasks" style="padding: 5px"></i>Task</a>
+                <a href="File.aspx" id="linkfile"><i class="fa fa-file-o" style="padding: 5px"></i>File</a>
+                <a href="#contact" id="linkuser"><i class="fa fa-user" style="padding: 5px"></i>User</a>
+                <%--<a href="ProjectSummaryReport.aspx" id="linkReport"  ><i class="fa fa-th" style="padding: 5px"></i>Project Summary Report</a>    
+                 <a href="ProjectDetailsReport.aspx" id="" ><i class="fa fa-th" style="padding: 5px"></i>Project Details Report</a>           
+                <a href="EmployeeWiseProjectReport.aspx" id="" ><i class="fa fa-th" style="padding: 5px"></i>Employee Wise Project Report</a>   
+                <a href="EmployeeWiseExpenseReport.aspx" id="" ><i class="fa fa-th" style="padding: 5px"></i>Employee Wise Expense Report</a> --%>
+                
+                <style>
+                    .c-report:hover {
+                         color: white;
+                    background-color: #0e4e93;
+                    }
+                </style>
+                
+                 <ul class="nav navbar-nav"  id="report">
+                        <li class="dropdown c-report" style="display: inline;">
+                            <a class=" sidenav" data-toggle="dropdown" href="#"><i class="fa fa-th"></i><span style="padding:5px">Report</span>
+                                <span class="caret"></span></a>
+                           <ul class="dropdown-menu">
+                                <li style="padding-top:5px" id="liproject"><a href="ProjectSummaryReport.aspx">
+                                   <i class="fa fa-circle-o"></i> Project Summary </a></li>
+                                <li style="padding-top:5px" id="liuser"><a href="ProjectDetailsReport.aspx">
+                                   <i class="fa fa-circle-o"></i>  Project Details </a></li>
+                                <li style="padding-top:5px" id="litask"><a href="EmployeeWiseProjectReport.aspx">
+                                   <i class="fa fa-circle-o"></i>  Employee Wise </a></li>
+                                <li style="padding-top:5px" id="litask"><a href="EmployeeWiseExpenseReport.aspx">
+                                 <i class="fa fa-circle-o"></i>  Expense </a></li>
+                            </ul>
+                        </li>
+                        <li id="idheading" class="heading-main-navbar" style="display: none;">Project Management System</li>
+                        <li id="idbarhead" style="display: none"><i class="fa fa-bars" style="color: white; margin: 15px;"></i></li>
+
+                    </ul>              
+            </section>
+            
+
+            <script>
+                !function ($) {
+
+                    // Le left-menu sign
+                    /* for older jquery version
+                    $('#left ul.nav li.parent > a > span.sign').click(function () {
+                        $(this).find('i:first').toggleClass("icon-minus");
+                    }); */
+
+                    $(document).on("click", "#left ul.nav li.parent > a > span.sign", function () {
+                        $(this).find('i:first').toggleClass("icon-minus");
+                    });
+
+                    // Open Le current menu
+                    $("#left ul.nav li.parent.active > a > span.sign").find('i:first').addClass("icon-minus");
+                    $("#left ul.nav li.current").parents('ul.children').addClass("in");
+
+                }(window.jQuery);
+                var isAjaxRunning = false; //Ajax call status 
+
+                $(document).ready(function myfunction() {
+
+                    $(".create .createspan").click(function () {
+                        debugger;
+                        if ($(this).text() == "Create Project") {
+                            localStorage.setItem("openCreateProjectModal", "true");
+                            window.location.href = "Projects.aspx";
+                        }
+                        else if ($(this).text() == "Create Task") {
+                         
+                            localStorage.setItem("openCreateTaskModal", "true");
+                            window.location.href = "CreateTask.aspx";
+                        }
+                    });
+
+                    $("#liproject").click(function () {
+                        localStorage.setItem("openCreateProjectModal", "true");
+                        window.localStorage.setItem("path", " / ProjectManage");
+                        window.localStorage.setItem("pathlink", "/ Projects.aspx");
+                        window.localStorage.setItem("heading", "PROJECT ");
+                    });
+                    $("#litask").click(function () {
+                        localStorage.setItem("openCreateTaskModal", "true");
+                        window.localStorage.setItem("path", " / TaskManage");
+                        window.localStorage.setItem("pathlink", "/ CreateTask.aspx");
+                        window.localStorage.setItem("heading", "TASK ");
+                    });
+                    $("#liuser").click(function () {
+                        localStorage.setItem("openCreateUserModal", "true");
+                        window.localStorage.setItem("path", " / UserManage");
+                        window.localStorage.setItem("pathlink", "/ UserOrange.aspx");
+                        window.localStorage.setItem("heading", "USER ");
+                    });
+
+
+
+
+                    $(".btnlogout").click(function () {
+                        localStorage.removeItem("pathlink");
+                        localStorage.removeItem("path");
+                        localStorage.removeItem("heading");
+                    });
+
+                    $(".breadcrumb_fixed li a").click(function () {
+                        window.localStorage.setItem("path", "|");
+                        window.localStorage.setItem("pathlink", "|");
+                        window.localStorage.setItem("heading", "DASHBOARD ");
+                        window.location.href = "Dashboard.aspx";
+
+                    });
+
+
+                    $(".sidenav a").click(function (e) {
+                        
+                        switch ($(this).attr("id")) {
+                            case "linkdash":
+                                window.localStorage.setItem("path", "|");
+                                window.localStorage.setItem("pathlink", "|");
+                                window.localStorage.setItem("heading", "DASHBOARD ");
+                                window.location.href = "Dashboard.aspx";
+
+                                break;
+                            case "linkprj":
+
+                                window.localStorage.setItem("path", " / ProjectManage");
+                                window.localStorage.setItem("pathlink", "/ Projects.aspx");
+                                $("#prj_drpdwn").hide();
+                                window.localStorage.setItem("heading", "PROJECT ");
+                                window.location.href = "Projects.aspx";
+                                break;
+
+                            case "linktask":
+                                window.localStorage.setItem("path", " / TaskManage");
+                                window.localStorage.setItem("pathlink", "/ CreateTask.aspx");
+                                window.localStorage.setItem("heading", "TASK ");
+                                window.location.href = "CreateTask.aspx";
+                                break;
+
+                            case "linkuser":
+                                window.localStorage.setItem("path", " / UserManage");
+                                window.localStorage.setItem("pathlink", "/ UserOrange.aspx");
+                                window.localStorage.setItem("heading", "USER ");
+                                window.location.href = "UserOrange.aspx";
+                                break;
+                          
+                            default:
+                        }
+                    });
+
+
+
+                    window.onload = function () {
+                        var path = window.localStorage.getItem("path");
+                        var pagelink = window.localStorage.getItem("pathlink");
+
+                        var htmlstr = "";
+
+                        if (path != "" && path != null && pagelink != "" && pagelink != null) {
+                            var paths = path.split("/");
+                            var pages = pagelink.split("/");
+
+
+                            for (var i = 1; i < paths.length; i++) {
+                                if (paths[i].trim() == "|" || paths[i].trim() == "ProjectManage" || paths[i].trim() == "UserManage") {
+                                } else if (paths[i].trim() == "TaskManage") {
+                                    $(".create .createspan").text("Create Task");
+                                }
+                                htmlstr += "<li><a href='" + pages[i] + "'>" + paths[i] + "<i class='fa '></i></a></li>";
+                            }
+                        }
+
+                        if (htmlstr != "")
+                            //$(htmlstr).insertBefore("#prj_drpdwn");
+                            $(".breadcrumb_fixed").append(htmlstr);
+                        $(".headingPanel span").text(window.localStorage.getItem("heading"));
+                    }
+                });
+            </script>
+            <!-- /.sidebar -->
+
+            <!-- Content Wrapper. Contains page content -->
+            <script>
+
+                if ($("#userrole").val() == "admin") {
+                    $(".create").css("display", "inline");
+                }
+                else if ($("#userrole").val().includes("admintesting")) {
+                    debugger;
+                    $("#linkprj").hide();
+                    $("#linkuser").hide();
+                    $("#linkfile").hide();
+                    $(".create").css("display", "block");
+                    $(".create .createspan").text("Create Task");
+                    $("#report").css("display", "none");
+                }
+                else {
+                    $("#linkprj").hide();
+                    $("#linkuser").hide();
+                    $("#linkfile").hide();
+                    $(".create").css("display", "none");
+                    $("#report").css("display", "none");
+                }
+
+                $(document).ajaxStart(function () {
+
+                    isAjaxRunning = true;
+                    $("#wait").css("display", "block");
+                });
+                $(document).ajaxComplete(function () {
+
+                    isAjaxRunning = false;
+                    $("#wait").css("display", "none");
+                });</script>
+
+
+            <!--Loader div start-->
+            <div id="wait" style="display: none; width: 69px; height: 89px; position: absolute; top: 50%; left: 50%; padding: 2px;">
+                <img src="images/loader.gif" width="64" height="64" /><br>
+                Loading..
+            </div>
+            <!--Loader div end-->
+
+            <div class="content-wrapper" style="background-color: white">
+                <div class="breadcrumb_div" style="padding-left: 130px;">
+
+                    <ol class="breadcrumb breadcrumb_fixed" style="width: 50% ; position:absolute; top:28px">
+                        <li>
+                            <a href="Dashboard.aspx"><i class="fa fa-home"></i></a>
+                        </li>
+
+                    </ol>
+                    <div class="breadcrumb headingPanel" style="float: right; background-color: #f5f5f5; width: 50%; text-align: right; height: 42px; z-index: 0; margin-top:-28px; right: 0px; padding-right: 100px;"><span style="font-weight: 800; font-size: 20px; color: #0e4e93; font-family: Georgia, 'Times New Roman', Times, serif"></span></div>
+                </div>
+                <asp:ContentPlaceHolder ID="mainContent" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+            <!-- /.content-wrapper -->
+
+            <!-- Control Sidebar -->
+
+            <!-- /.control-sidebar -->
+            <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+            <div class="control-sidebar-bg"></div>
+        </div>
+        <!-- ./wrapper -->
+
+    </form>
+
+    <!-- ./wrapper -->
+
+    <!-- Custom JAVAScript -->
+    <script src="js/Custom.js"></script>
+    <!--Morris js -->
+    <script src="bower_components/morris.js/morris.min.js"></script>
+
+
+    <!-- jQuery UI 1.11.4 -->
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- DataTables -->
+    <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+    <!-- Sparkline -->
+    <script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- jvectormap -->
+    <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- datepicker -->
+    <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
+    <%-- iCheck--%>
+    <link rel="stylesheet" href="Dashboard/plugins/iCheck/square/blue.css">
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+
+    <script>
+        $(function () {
+            $('#GV_Template_Details').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': true,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+    </script>
+
+    <script>
+
+
+        window.history.forward();
+        function noBack() { window.history.forward(); }
+
+    </script>
+
+    <script type="text/javascript">
+
+
+        $(function () {
+            $('input[name="BroadcastdateTime"]').daterangepicker({
+                timePicker: true,
+                startDate: moment().startOf('hour'),
+                endDate: moment().startOf('hour').add(32, 'hour'),
+                locale: {
+                    format: 'DD/MM/YYYY'
+                }
+            });
+        });
+        $(function () {
+            $('input[name="ReportTime"]').daterangepicker({
+                timePicker: true,
+                startDate: moment().startOf('hour'),
+                endDate: moment().startOf('hour'),
+                locale: {
+                    format: 'DD/MM/YYYY'
+                }
+            });
+        });
+        idbarhead
+        $("#idbarhead").click(function () {
+            $(".sidenav").toggle();
+            $(".sidenav").css("display", "block");
+            $(".sidenav").css("width", "100%");
+            $(".sidenav").css("position", "fixed");
+            $(".sidenav").css("z-index", "1");
+            $(".sidenav").css("top", "0");
+            $(".sidenav").css("left", "0");
+            $(".sidenav").css("background-color", "#eee");
+            $(".sidenav").css("overflow-x", "hidden");
+            $(".sidenav").css("padding-top", "97px");
+            $(".sidenav").css("height", "auto");
+
+        });
+
+        $(document).ready(function () {
+            $(".h-btn").click(function () {                
+                $(".sidenav").toggle();
+            });
+        });
+    </script>
+
+
+</body>
+</html>

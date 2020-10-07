@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Rotating Words with CSS Animations" />
+        <meta name="keywords" content="css3, animations, rotating words, sentence, typography" />
+        <meta name="author" content="Codrops" />
+		<script src="js/modernizr.custom.72111.js"></script>
+		<style>
+			.no-cssanimations .rw-wrapper .rw-sentence span:first-child{
+				opacity: 1;
+			}
+			.rw-words-1{
+	display: inline;
+	text-indent: 10px;
+}
+.rw-words span{
+	position: absolute;
+	opacity: 0;
+	overflow: hidden;
+	color: %FontColor%;
+	font-family:%Fontfamily%;
+	font-size:%Fontsize%px;
+	-webkit-transform-origin: 10% 75%;
+	transform-origin: 10% 75%;
+	-webkit-animation: rotateWord %Totaltime%s linear infinite 0s;
+	-ms-animation: rotateWord %Totaltime%s linear infinite 0s;
+	animation: rotateWord %Totaltime%s linear infinite 0s;
+}
+%Textcss%
+@-webkit-keyframes rotateWord {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    17% { opacity: 1; -webkit-transform: rotate(0deg); }
+	19% { opacity: 1; -webkit-transform: rotate(98deg); }
+	21% { opacity: 1; -webkit-transform: rotate(86deg); }
+	23% { opacity: 1; -webkit-transform: translateY(85px) rotate(83deg); }
+	25% { opacity: 0; -webkit-transform: translateY(170px) rotate(80deg); }
+	80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@-ms-keyframes rotateWord {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    17% { opacity: 1; -ms-transform: rotate(0deg); }
+	19% { opacity: 1; -ms-transform: rotate(98deg); }
+	21% { opacity: 1; -ms-transform: rotate(86deg); }
+	23% { opacity: 1; -ms-transform: translateY(85px) rotate(83deg); }
+	25% { opacity: 0; -ms-transform: translateY(170px) rotate(80deg); }
+	80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@keyframes rotateWord {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    17% { opacity: 1; -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+	19% { opacity: 1; -webkit-transform: rotate(98deg); transform: rotate(98deg); }
+	21% { opacity: 1; -webkit-transform: rotate(86deg); transform: rotate(86deg); }
+	23% { opacity: 1; -webkit-transform: translateY(85px) rotate(83deg); transform: translateY(85px) rotate(83deg); }
+	25% { opacity: 0; -webkit-transform: translateY(170px) rotate(80deg); transform: translateY(170px) rotate(80deg); }
+	80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+		</style>
+		<!--[if lt IE 9]> 
+			<style>
+				.rw-wrapper{ display: none; } 
+				.rw-sentence-IE{ display: block;  }
+			</style>
+		<![endif]-->
+    </head>
+    <body style="background-color:%backcolor%;">
+        
+					<div class="rw-words rw-words-1">
+						%Texttodisplay%
+					</div>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Rotating Words with CSS Animations" />
+        <meta name="keywords" content="css3, animations, rotating words, sentence, typography" />
+        <meta name="author" content="Codrops" />
+		<style>
+			.no-cssanimations .rw-wrapper .rw-sentence span:first-child{
+				opacity: 1;
+			}
+			.rw-words-1{
+	width: 100%;
+	height: 100px;
+	-webkit-perspective: 800px;
+	perspective: 800px;
+}
+.rw-words-1 span{
+	position: absolute;
+	width: 100%;
+	opacity: 0;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.rw-words-2 span{
+	font-size: 300%;
+	font-style: italic;
+	text-indent: 5px;
+	line-height: 90%;
+	color: %FontColor%;	
+	font-family:%Fontfamily%;
+	font-size:%Fontsize%px;
+	-webkit-animation: rotateWordsSecond %Totaltime%s ease-in infinite 0s;
+	-ms-animation: rotateWordsSecond %Totaltime%s ease-in infinite 0s;
+	animation: rotateWordsSecond %Totaltime%s ease-in infinite 0s;
+}
+%Textcss%
+@-webkit-keyframes rotateWordsFirst {
+    0% { opacity: 0; -webkit-animation-timing-function: ease-in; width: 0px;}
+    5% { opacity: 1; -webkit-animation-timing-function: ease-out; width: 100%;}
+    17% { opacity: 1; }
+    20% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@-ms-keyframes rotateWordsFirst {
+    0% { opacity: 0; -ms-animation-timing-function: ease-in; width: 0px;}
+    5% { opacity: 1; -ms-animation-timing-function: ease-out; width: 100%;}
+    17% { opacity: 1; }
+    20% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@keyframes rotateWordsFirst {
+    0% { opacity: 0; -webkit-animation-timing-function: ease-in; animation-timing-function: ease-in; width: 0px;}
+    5% { opacity: 1; -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; width: 100%;}
+    17% { opacity: 1; }
+    20% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@-webkit-keyframes rotateWordsSecond {
+    0% { opacity: 0; -webkit-transform: translateZ(600px) translateX(200px);}
+    8% { opacity: 1; -webkit-transform: translateZ(0px) translateX(0px);}
+    17% { opacity: 1; }
+    25% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@-ms-keyframes rotateWordsSecond {
+    0% { opacity: 0; -ms-transform: translateZ(600px) translateX(200px);}
+    8% { opacity: 1; -ms-transform: translateZ(0px) translateX(0px);}
+    17% { opacity: 1; }
+    25% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@keyframes rotateWordsSecond {
+    0% { opacity: 0; -webkit-transform: translateZ(600px) translateX(200px); transform: translateZ(600px) translateX(200px);}
+    8% { opacity: 1; -webkit-transform: translateZ(0px) translateX(0px); transform: translateZ(0px) translateX(0px);}
+    17% { opacity: 1; }
+    25% { opacity: 0; }
+    100% { opacity: 0; }
+}
+		</style>
+		<!--[if lt IE 9]> 
+			<style>
+				body{ background: #fff; }
+				.rw-wrapper{ display: none; } 
+				.rw-sentence-IE{ display: block;  }
+			</style>
+		<![endif]-->
+    </head>
+    <body style="background-color:%backcolor%;">
+					<div class="rw-words-1 rw-words-2">
+						%Texttodisplay%
+					</div>
+    </body>
+</html>

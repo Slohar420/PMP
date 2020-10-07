@@ -1,0 +1,121 @@
+﻿:root {
+    --input-padding-x: .75rem;
+    --input-padding-y: .75rem;
+}
+
+
+.form-control {
+    background-color: #f5f5f5;
+}
+
+body {
+    width: 100%;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -webkit-selectbox-align: center;
+    align-items: center;
+    -webkit-selectbox-pack: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+
+.form-signin {
+    width: 650px;
+    padding:25px;
+    margin: 0 auto;
+    height: 465px;
+    background-color: #b4ddf5;
+    border-radius: 15px;
+}
+
+select, option {
+    font-size: 14px;
+}
+
+
+.form-label-group {
+    float: left;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+    .form-label-group > input {
+        padding-top: 0px;
+        padding-left: 27px;
+        height: 35px;
+        width:100%;
+        border-radius: 0px;
+        font-size: 14px;
+    }
+
+/*.content-header {
+    padding: 15px 15px 0px 15px;
+}*/
+
+
+
+.mymodal {
+    border-radius: 30px 0px 20px;
+    overflow: auto;
+    overflow-y: auto;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    left: 100px;
+    z-index: 10040;
+}
+
+.form-label-group > label {
+    position: absolute;
+    margin-top: 9px;
+    margin-left: 35px;
+    top: 0;
+    left: 0;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline;
+    margin-bottom: 0; /* Override default `<label>` margin */
+    line-height: 1.5;
+    color: #9a9a9a;
+    transition: all .2s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::placeholder {
+    color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+    padding-bottom: calc(var(--input-padding-y) / 3);
+    padding-top: 2px;
+}
+
+    .form-label-group input:not(:placeholder-shown) ~ label {
+        transform: translate(-10px,-21px);
+        font-size: 13px;
+        color: black;
+        font-weight: 500;
+        padding-bottom: 0px;
+        background-color: white;
+        display: block;
+        border-radius:3px;
+    }

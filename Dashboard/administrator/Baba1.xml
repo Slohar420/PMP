@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ArrayOfLayoutStructure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LayoutStructure>
+    <height>300</height>
+    <width>500</width>
+    <xPos>0</xPos>
+    <yPos>0</yPos>
+    <Desc>MainDiv</Desc>
+    <name>MainDiv</name>
+    <type>MainDiv</type>
+  </LayoutStructure>
+  <LayoutStructure>
+    <height>60</height>
+    <width>100</width>
+    <xPos>0</xPos>
+    <yPos>0</yPos>
+    <Desc>Screenshot (1).png</Desc>
+    <name>Block1</name>
+    <type>Image</type>
+  </LayoutStructure>
+</ArrayOfLayoutStructure>
